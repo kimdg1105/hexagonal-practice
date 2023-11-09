@@ -1,0 +1,3 @@
+rootProject.name = 'hexagonal-practice'
+
+include('rental-microservice')
