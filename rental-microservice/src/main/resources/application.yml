@@ -1,6 +1,6 @@
 server:
   port: 8080
-  
+
 spring:
   mvc:
     pathmatch:
@@ -39,4 +39,6 @@ spring:
 
 logging:
   level:
+    com.msa.rental: debug
     org.hibernate.SQL: debug
+    root: info

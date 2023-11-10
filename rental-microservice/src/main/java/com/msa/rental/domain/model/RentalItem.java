@@ -22,7 +22,7 @@ public class RentalItem {
         return rentalItem;
     }
 
-    public boolean isOverdue() {
+    public boolean checkOverdue() {
         boolean result = LocalDate.now().isAfter(this.overdueDate);
         if (result) {
             this.overdue();

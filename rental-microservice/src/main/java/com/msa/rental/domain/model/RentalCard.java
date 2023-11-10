@@ -83,7 +83,7 @@ public class RentalCard {
     }
 
     private void calculateLateFee(RentalItem rentalItem, LocalDate returnDate) {
-        if (rentalItem.isOverdue()) {
+        if (rentalItem.checkOverdue()) {
             int point = Period.between(rentalItem.getOverdueDate(), returnDate).getDays() * 10;
             this.lateFee.addPoint(point);
         }
