@@ -45,19 +45,26 @@ subprojects {
 
     // 하위 모듈에서 공통으로 사용하는 세팅 추가
     dependencies {
+        annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+
+        // Logging
         implementation 'ch.qos.logback:logback-classic:1.4.11'
         implementation 'org.slf4j:slf4j-api:2.0.9'
 
+        // Lombok
         compileOnly 'org.projectlombok:lombok'
         testCompileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok'
         testAnnotationProcessor 'org.projectlombok:lombok'
 
-        annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+        // MapStruct
+        implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+        annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
 
+
+        // Test
         testImplementation 'org.junit.jupiter:junit-jupiter-api'
         testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
-        // https://mvnrepository.com/artifact/org.assertj/assertj-core
         testImplementation 'org.assertj:assertj-core:3.24.2'
 
     }
