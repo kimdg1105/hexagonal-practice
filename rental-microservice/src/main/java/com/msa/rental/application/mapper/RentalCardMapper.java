@@ -1,7 +1,7 @@
 package com.msa.rental.application.mapper;
 
 import com.msa.rental.domain.model.RentalCard;
-import com.msa.rental.framework.web.dto.RentalCardCreateOutputDto;
+import com.msa.rental.framework.web.dto.RentalCardOutputDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
@@ -17,7 +17,7 @@ public interface RentalCardMapper {
     @Mapping(source = "rentalCard", target = "totalRentalCount", qualifiedByName = "getTotalRentalCount")
     @Mapping(source = "rentalCard", target = "totalReturnCount", qualifiedByName = "getTotalReturnCount")
     @Mapping(source = "rentalCard", target = "totalOverdueCount", qualifiedByName = "getTotalOverdueCount")
-    RentalCardCreateOutputDto toOutputDto(RentalCard rentalCard);
+    RentalCardOutputDto toRentalCardOutputDto(RentalCard rentalCard);
 
     @Named("getTotalRentalCount")
     default Integer getTotalRentalCount(RentalCard rentalCard) {

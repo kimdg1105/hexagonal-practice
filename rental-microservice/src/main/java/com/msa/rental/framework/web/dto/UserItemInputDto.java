@@ -3,7 +3,7 @@ package com.msa.rental.framework.web.dto;
 public record UserItemInputDto(
         String userId,
         String userName,
-        String itemId,
+        Integer itemId,
         String itemName,
         Integer rentalDayCount) {
 }

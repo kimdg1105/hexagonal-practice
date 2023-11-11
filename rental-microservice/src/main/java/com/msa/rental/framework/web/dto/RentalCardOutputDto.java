@@ -1,7 +1,7 @@
 package com.msa.rental.framework.web.dto;
 
 
-public record RentalCardCreateOutputDto(
+public record RentalCardOutputDto(
         String rentalCardId,
         String memberId,
         String memberName,
