@@ -1,6 +1,10 @@
 package com.msa.rental.domain.model;
 
 import com.msa.rental.domain.model.vo.*;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Embedded;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,15 +14,25 @@ import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class RentalCard {
+    @EmbeddedId
     private RentalCardNo renalCardNo;
+
+    @Embedded
     private IDName member;
+
     private RentStatus rentStatus;
+
+    @Embedded
     private LateFee lateFee;
+
+    @ElementCollection
     private List<RentalItem> rentalItemList = new ArrayList<>();
+    @ElementCollection
     private List<ReturnItem> returnItemList = new ArrayList<>();
 
     public RentalCard(RentalCardNo renalCardNo, IDName member, RentStatus rentStatus, LateFee lateFee) {

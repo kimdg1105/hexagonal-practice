@@ -1,12 +1,18 @@
 package com.msa.rental.domain.model;
 
 import com.msa.rental.domain.model.vo.Item;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.Embedded;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
 @Getter
+@NoArgsConstructor
+@Embeddable
 public class RentalItem {
+    @Embedded
     private Item item;
     private LocalDate rentalDate;
     private LocalDate overdueDate;

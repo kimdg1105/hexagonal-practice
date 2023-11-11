@@ -1,14 +1,17 @@
 package com.msa.rental.domain.model.vo;
 
+import jakarta.persistence.Embeddable;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.UUID;
 
 @Data
 @NoArgsConstructor
-public class RentalCardNo {
+@Embeddable
+public class RentalCardNo implements Serializable {
     private String no;
 
     public static RentalCardNo create() {

@@ -1,15 +1,16 @@
 package com.msa.rental.domain.model.vo;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
+import jakarta.persistence.Embeddable;
+import lombok.*;
 
 @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @EqualsAndHashCode
+@Embeddable
 public class Item {
-    private final Integer no;
-    private final String title;
+    private Integer no;
+    private String title;
 
     public static Item create(Integer no, String title) {
         return new Item(no, title);

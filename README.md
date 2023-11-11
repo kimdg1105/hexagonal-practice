@@ -6,13 +6,16 @@ EDA 기반 Microservice 구현
     - Input Port (Interface)
     - Use case
     - Output Port (Interface)
+      - 
 - ## Domain Layer
     - model
 
 - ## Infrastructure Layer
-    - jpa adapter
-    - kafka adapter
-    - web adapter
+    - 입력 어댑터
+        - jpa adapter
+        - kafka adapter
+    - 출력 어댑터
+        - web adapter
 
 ## Rule
 
