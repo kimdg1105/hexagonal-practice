@@ -83,3 +83,13 @@ project(':book-microservice') {
     bootJar { enabled = true }
     jar { enabled = false }
 }
+
+project(':member-microservice') {
+    bootJar { enabled = true }
+    jar { enabled = false }
+}
+
+project(':best-book-microservice') {
+    bootJar { enabled = true }
+    jar { enabled = false }
+}

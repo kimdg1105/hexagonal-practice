@@ -1,19 +1,19 @@
 server:
-  port: 8082
+  port: 8083
 
 spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
   application:
-    name: member-microservice
+    name: best-book-microservice
   profiles:
     active: default
-  datasource:
-    url: jdbc:h2:mem:testdb
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: test
   jpa:
     hibernate:
       ddl-auto: create
@@ -46,7 +46,7 @@ logging:
 
 # Swagger springdoc-ui Configuration
 springdoc:
-  packages-to-scan: com.msa.member.framework.web
+  packages-to-scan: com.msa.bestbook
   default-consumes-media-type: application/json;charset=UTF-8
   default-produces-media-type: application/json;charset=UTF-8
   swagger-ui:
@@ -59,4 +59,5 @@ springdoc:
       enabled: true
   cache:
     disabled: true
+
 
