@@ -8,7 +8,7 @@ import com.msa.rental.domain.model.RentalCard;
 import com.msa.rental.framework.web.dto.RentalCardOutputDto;
 import com.msa.rental.framework.web.dto.RentalItemOutputDto;
 import com.msa.rental.framework.web.dto.ReturnItemOutputDto;
-import com.msa.rental.framework.web.dto.UserItemInputDto;
+import com.msa.rental.framework.web.dto.UserInputDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,19 +25,19 @@ public class InQueryInputPort implements InQueryUseCase {
     private final RentalItemMapper rentalItemMapper;
 
     @Override
-    public RentalCardOutputDto getRentalCard(UserItemInputDto inputDto) {
+    public RentalCardOutputDto getRentalCard(UserInputDto inputDto) {
         RentalCard rentalCard = rentalCardOutputPort.getRentalCardByUserId(inputDto.userId());
         return rentalCardMapper.toRentalCardOutputDto(rentalCard);
     }
 
     @Override
-    public List<RentalItemOutputDto> getAllRentalItem(UserItemInputDto inputDto) {
+    public List<RentalItemOutputDto> getAllRentalItem(UserInputDto inputDto) {
         RentalCard rentalCard = rentalCardOutputPort.getRentalCardByUserId(inputDto.userId());
         return rentalCard.getRentalItemList().stream().map(rentalItemMapper::toRentalItemOutputDto).toList();
     }
 
     @Override
-    public List<ReturnItemOutputDto> getAllReturnItem(UserItemInputDto inputDto) {
+    public List<ReturnItemOutputDto> getAllReturnItem(UserInputDto inputDto) {
         RentalCard rentalCard = rentalCardOutputPort.getRentalCardByUserId(inputDto.userId());
         return rentalCard.getReturnItemList().stream().map(rentalItemMapper::toReturnItemOutputDto).toList();
     }

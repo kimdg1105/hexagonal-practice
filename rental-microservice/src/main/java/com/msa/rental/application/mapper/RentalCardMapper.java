@@ -1,6 +1,7 @@
 package com.msa.rental.application.mapper;
 
 import com.msa.rental.domain.model.RentalCard;
+import com.msa.rental.domain.model.RentalItem;
 import com.msa.rental.framework.web.dto.RentalCardOutputDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -26,12 +27,15 @@ public interface RentalCardMapper {
 
     @Named("getTotalReturnCount")
     default Integer getTotalReturnCount(RentalCard rentalCard) {
-        return rentalCard.getRentalItemList().size();
+        return rentalCard.getReturnItemList().size();
     }
 
     @Named("getTotalOverdueCount")
     default Integer getTotalOverdueCount(RentalCard rentalCard) {
-        return rentalCard.getRentalItemList().size();
+        return rentalCard.getRentalItemList()
+                .stream().filter(RentalItem::isOverdue)
+                .toList()
+                .size();
     }
 }
 
