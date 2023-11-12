@@ -11,4 +11,8 @@ import lombok.NoArgsConstructor;
 public class Password {
     private String currentPassword;
     private String pastPassword;
+
+    public static Password create(String currentPassword) {
+        return new Password(currentPassword, null);
+    }
 }

@@ -9,4 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Email {
     private String address;
+
+    public static Email create(String address) {
+        return new Email(address);
+    }
 }
