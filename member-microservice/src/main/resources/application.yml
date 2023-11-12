@@ -46,7 +46,7 @@ logging:
 
 # Swagger springdoc-ui Configuration
 springdoc:
-  packages-to-scan: com.msa.book.framework.web
+  packages-to-scan: com.msa.member.framework.web
   default-consumes-media-type: application/json;charset=UTF-8
   default-produces-media-type: application/json;charset=UTF-8
   swagger-ui:

@@ -13,6 +13,6 @@ public interface MemberMapper {
     @Mapping(source = "member.idName.name", target = "name")
     @Mapping(source = "member.password.currentPassword", target = "password")
     @Mapping(source = "member.email.address", target = "email")
-    @Mapping(source = "member.point.value", target = "point")
+    @Mapping(source = "member.point.point", target = "point")
     MemberOutputDto toMemberOutputDto(Member member);
 }

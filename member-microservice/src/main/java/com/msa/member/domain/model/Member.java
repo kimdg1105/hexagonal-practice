@@ -1,6 +1,7 @@
 package com.msa.member.domain.model;
 
 import com.msa.member.domain.vo.*;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,14 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 public class Member {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long memberNo;
+    @Embedded
     private IDName idName;
+    @Embedded
     private Password password;
+    @Embedded
     private Email email;
+    @ElementCollection
     private List<Authority> authorities = new ArrayList<>();
+    @Embedded
     private Point point;
 
     public static Member create(IDName idName, Password password, Email email) {
