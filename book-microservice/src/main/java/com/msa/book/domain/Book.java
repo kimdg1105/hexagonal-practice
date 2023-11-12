@@ -1,6 +1,7 @@
 package com.msa.book.domain;
 
 import com.msa.book.domain.vo.*;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,11 +9,15 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 
 @Data
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 public class Book {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long no;
     private String title;
+    @Embedded
     private BookDescription description;
     private Classification classification;
     private BookStatus status;

@@ -24,6 +24,7 @@ EDA 기반 Microservice 구현
 - Application Layer는 Domain Layer에 의존한다.
 - Domain Layer는 Application Layer에 의존하지 않는다.
 - Framework Layer가 Application Layer에 의존한다.
+- 구현 편의상 Domain Model에 OR Mapping을 적용한다.
 
 ## TODO
 
