@@ -1,0 +1,63 @@
+server:
+  port: 8081
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  application:
+    name: book-microservice
+  profiles:
+    active: default
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: foo0
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+
+logging:
+  level:
+    com.msa.rental: debug
+    org.hibernate.SQL: debug
+    root: info
+
+
+# Swagger springdoc-ui Configuration
+springdoc:
+  packages-to-scan: com.msa.rental.framework.web
+  default-consumes-media-type: application/json;charset=UTF-8
+  default-produces-media-type: application/json;charset=UTF-8
+  swagger-ui:
+    path: demo-ui.html            # Swagger UI ?? => localhost:8000/demo-ui.html
+    tags-sorter: alpha            # alpha: ??? ? ?? ??, method: HTTP Method ? ??
+    operations-sorter: alpha      # alpha: ??? ? ?? ??, method: HTTP Method ? ??
+  api-docs:
+    path: /api-docs/json
+    groups:
+      enabled: true
+  cache:
+    disabled: true
+??: https://adjh54.tistory.com/72#4. application.properties ?? ??-1 [Contributor9:????]
+
